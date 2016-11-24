@@ -21,3 +21,13 @@ id_array.first[1].take(10).each do |element|
 end
 
 puts 'Well done!'
+
+
+Cocktail.create!(name: "Mint Julep")
+Cocktail.create!(name: "Whiskey Sour")
+Cocktail.create!(name: "Mojito")
+
+
+Dose.create!(description: "1", ingredient_id: 1, cocktail_id: 3)
+Dose.create!(description: "3", ingredient_id: 2, cocktail_id: 3)
+Dose.create!(description: "10", ingredient_id: 3, cocktail_id: 3)
