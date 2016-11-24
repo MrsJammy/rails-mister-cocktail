@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20161124145924) do
 
   create_table "doses", force: :cascade do |t|
     t.string   "description"
-    t.integer  "cocktails_id"
-    t.integer  "ingredients_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["cocktails_id"], name: "index_doses_on_cocktails_id", using: :btree
-    t.index ["ingredients_id"], name: "index_doses_on_ingredients_id", using: :btree
+    t.integer  "cocktail_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["cocktail_id"], name: "index_doses_on_cocktail_id", using: :btree
+    t.index ["ingredient_id"], name: "index_doses_on_ingredient_id", using: :btree
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -37,6 +37,6 @@ ActiveRecord::Schema.define(version: 20161124145924) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "doses", "cocktails", column: "cocktails_id"
-  add_foreign_key "doses", "ingredients", column: "ingredients_id"
+  add_foreign_key "doses", "cocktails"
+  add_foreign_key "doses", "ingredients"
 end
